@@ -6,3 +6,6 @@ from django.http import HttpResponse
 def index(request):
 
     return HttpResponse('Hello Will')
+
+def test(request):
+    return 123;
