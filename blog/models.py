@@ -46,7 +46,7 @@ class Article(BaseModel):
     excerpt = models.TextField('摘要', max_length=200, blank=True)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name='分类', blank=True, null=True)
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
-    img = models.ImageField(upload_to='article_img/%Y/%m/%d', verbose_name='文章图片', blank=True, null=True)
+    img = models.ImageField(upload_to='article_img/%Y%m%d', verbose_name='文章图片', blank=True, null=True)
     body = RichTextUploadingField('内容', blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
     views = models.PositiveIntegerField('阅读量', default=0)

@@ -3,10 +3,10 @@
 <div id="main-container" class="container clearfix">
         <section class="post-left">
             <div class="breadcrumb">您的位置： <a itemprop="breadcrumb" href="{% url 'index' %}">首页</a> » <span
-                    class="current">{{ cname }}</span></div>
+                    class="current">关键词{{ ss }}</span></div>
             <div class="index-main clearfix">
                 <div class="main-title">
-                    <h4 class="post-left-title">分类：{{ cname }}</h4>
+                    <h4 class="post-left-title">关键词：{{ ss }}</h4>
                 </div>
                 <div class="row">
                     {% for li in list %}

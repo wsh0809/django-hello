@@ -1,149 +1,36 @@
         <aside class="post-right hidden-xs">
-            </section>
             <section class="widget post-right-item">
                 <h4 class="post-right-title">热门文章排行</h4>
                 <ol class="hot-list">
-                    
-                        <li><a href="/show-3.html" title="微软发布IE10预览版 或增加IE5浏览模式 提供下载">微软发布IE10预览版 或增加IE5浏览模式 提供下载</a></li>
-                    
-                        <li><a href="/show-10.html" title="手机端阅读类产品的信息架构">手机端阅读类产品的信息架构</a></li>
-                    
-                        <li><a href="/show-5.html" title="简单HTML5打造内涵搜索框">简单HTML5打造内涵搜索框</a></li>
-                    
-                        <li><a href="/show-1.html" title="W3C启动Web支付标准工作，推进在线结算流程">W3C启动Web支付标准工作，推进在线结算流程</a></li>
-                    
-                        <li><a href="/show-8.html" title="谷歌用户体验设计准则">谷歌用户体验设计准则</a></li>
-                    
-                        <li><a href="/show-4.html" title="Firefox5新功能:社交共享 集成身份管理">Firefox5新功能:社交共享 集成身份管理</a></li>
-                    
-                        <li><a href="/show-7.html" title="网站设计-不只是门面漂亮这么简单">网站设计-不只是门面漂亮这么简单</a></li>
-                    
-                        <li><a href="/show-6.html" title="用户体验设计-让你的牙膏盒使用更合理">用户体验设计-让你的牙膏盒使用更合理</a></li>
-                    
-                        <li><a href="/show-11.html" title="腾讯出品：制定设计的原则">腾讯出品：制定设计的原则</a></li>
-                    
-                        <li><a href="/show-2.html" title="博客列入12家估值飙升互联网创业企业 Quora第一">博客列入12家估值飙升互联网创业企业 Quora第一</a></li>
-                    
-
-
+                    {% for h in hot %}
+                        <li><a href="{% url 'index' %}/show-{{ h.id }}.html" title="{{ h.title }}">{{ h.title }}</a></li>
+                    {% endfor %}
                 </ol>
             </section>
-            </section>
-            </section>
-
-
             <section class="widget post-right-item"><h4 class="post-right-title">热门推荐</h4>
                 <ul class="post-new">
-                    
-                        <li>
+                    {% for r in remen %}
+                    <li>
                             <div class="img">
-                                <a href="/show-1.html" title="W3C启动Web支付标准工作，推进在线结算流程"><img src="static/picture/next-1.png"
-                                                                       srcset="media/article_img/2018/10/07/next-1.png" alt="W3C启动Web支付标准工作，推进在线结算流程"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
+                                <a href="{% url 'index' %}show-{{ r.id }}.html" title="{{ r.title}}">
+                                    <img src="/media/{{ r.img }}"
+                                         srcset="/media/{{ r.img }}"
+                                         alt="{{ r.title }}"
+                                         class="wp-post-image" width="120" height="80"/>
+                                </a>
                             </div>
                             <div class="text">
-                                <a href="/show-1.html" title="W3C启动Web支付标准工作，推进在线结算流程" target="_blank">W3C启动Web支付标准工作，推进在线结算流程</a>
+                                <a href="{% url 'index' %}show-{{ r.id }}.html" title="{{ r.title }}" target="_blank">{{ r.title }}</a>
                             </div>
                         </li>
-
-                    
-                        <li>
-                            <div class="img">
-                                <a href="/show-4.html" title="Firefox5新功能:社交共享 集成身份管理"><img src="static/picture/firefox503.jpg"
-                                                                       srcset="media/article_img/2018/10/07/firefox503.jpg" alt="Firefox5新功能:社交共享 集成身份管理"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
-                            </div>
-                            <div class="text">
-                                <a href="/show-4.html" title="Firefox5新功能:社交共享 集成身份管理" target="_blank">Firefox5新功能:社交共享 集成身份管理</a>
-                            </div>
-                        </li>
-
-                    
-                        <li>
-                            <div class="img">
-                                <a href="/show-5.html" title="简单HTML5打造内涵搜索框"><img src="static/picture/web1_if1rrie.jpg"
-                                                                       srcset="media/article_img/2018/10/07/web1_If1RRie.jpg" alt="简单HTML5打造内涵搜索框"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
-                            </div>
-                            <div class="text">
-                                <a href="/show-5.html" title="简单HTML5打造内涵搜索框" target="_blank">简单HTML5打造内涵搜索框</a>
-                            </div>
-                        </li>
-
-                    
-                        <li>
-                            <div class="img">
-                                <a href="/show-7.html" title="网站设计-不只是门面漂亮这么简单"><img src="static/picture/web1.jpg"
-                                                                       srcset="media/article_img/2018/10/07/web1.jpg" alt="网站设计-不只是门面漂亮这么简单"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
-                            </div>
-                            <div class="text">
-                                <a href="/show-7.html" title="网站设计-不只是门面漂亮这么简单" target="_blank">网站设计-不只是门面漂亮这么简单</a>
-                            </div>
-                        </li>
-
-                    
-                        <li>
-                            <div class="img">
-                                <a href="/show-8.html" title="谷歌用户体验设计准则"><img src="static/picture/tx_3zybskx.jpg"
-                                                                       srcset="media/article_img/2018/10/07/tx_3zybSKX.jpg" alt="谷歌用户体验设计准则"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
-                            </div>
-                            <div class="text">
-                                <a href="/show-8.html" title="谷歌用户体验设计准则" target="_blank">谷歌用户体验设计准则</a>
-                            </div>
-                        </li>
-
-                    
-                        <li>
-                            <div class="img">
-                                <a href="/show-10.html" title="手机端阅读类产品的信息架构"><img src="static/picture/shouji.jpeg"
-                                                                       srcset="media/article_img/2018/10/07/shouji.jpeg" alt="手机端阅读类产品的信息架构"
-                                                                       class="wp-post-image" width="120"
-                                                                       height="80"/></a>
-                            </div>
-                            <div class="text">
-                                <a href="/show-10.html" title="手机端阅读类产品的信息架构" target="_blank">手机端阅读类产品的信息架构</a>
-                            </div>
-                        </li>
-
-                    
-
+                    {% endfor %}
                 </ul>
-            </section>
             </section>
             <section class="widget post-right-item"><h4 class="post-right-title">所有标签</h4>
                 <div class="tags">
-                    
-                        <a href="/tag/django">django</a>
-                    
-                        <a href="/tag/Python教程">Python教程</a>
-                    
-                        <a href="/tag/Django教程">Django教程</a>
-                    
-                        <a href="/tag/mysql">mysql</a>
-                    
-                        <a href="/tag/Linux">Linux</a>
-                    
+                    {% for tag in tags %}
+                    <a href="{% url 'index' %}tag/{{ tag.name }}">{{ tag.name }}</a>
+                    {% endfor %}
                 </div>
             </section>
-            </section><!-- /关注我们 -->
-            <div class="post-right-item">
-                <h4 class="post-right-title">关注我们</h4>
-                <div class="wid-about">
-                    <p>拓普Python学院，欢迎关注！</p>
-                    <img src="static/picture/weixinqr.jpg" alt="微信二维码-互联网的一些事" width="160" height="160">
-                </div>
-                <div class="wid-about">
-                    <p><strong>联系方式:</strong></p>
-                    <p>QQ:445813</p>
-                    <p>Email：445813@qq.com</p>
-                </div>
-            </div>
-
         </aside>
