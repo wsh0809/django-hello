@@ -5,11 +5,13 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
+
 class BaseModel(models.Model):
 
     class Meta:
         abstract = True
         ordering = ['id']
+
 
 class Category(BaseModel):
     name = models.CharField('博客分类', max_length=100)
@@ -22,14 +24,17 @@ class Category(BaseModel):
     def __str__(self):
         return self.name
 
+
 class Tag(BaseModel):
     name = models.CharField('文章标签', max_length=100)
+
     class Meta:
         verbose_name = '文章标签'
         verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.name
+
 
 class Tui(BaseModel):
     name = models.CharField('推荐位', max_length=100)
@@ -41,6 +46,7 @@ class Tui(BaseModel):
     def __str__(self):
         return self.name
 
+
 class Article(BaseModel):
     title = models.CharField('标题', max_length=70)
     excerpt = models.TextField('摘要', max_length=200, blank=True)
@@ -51,7 +57,6 @@ class Article(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
     views = models.PositiveIntegerField('阅读量', default=0)
     tui = models.ForeignKey(Tui, on_delete=models.DO_NOTHING, verbose_name='推荐位', blank=True, null=True)
-
     created_time = models.DateTimeField('发布时间', auto_now_add=True)
     modified_time = models.DateTimeField('修改时间', auto_now=True)
 
@@ -61,6 +66,7 @@ class Article(BaseModel):
 
     def __str__(self):
         return self.title
+
 
 class Banner(BaseModel):
     text_info = models.CharField('标题', max_length=50, default='')
@@ -74,6 +80,7 @@ class Banner(BaseModel):
     class Meta:
         verbose_name = '轮播图'
         verbose_name_plural = verbose_name
+
 
 class Link(BaseModel):
     name = models.CharField('链接名称', max_length=20)

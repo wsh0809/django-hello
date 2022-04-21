@@ -4,8 +4,10 @@ from .models import Article, Category, Tag, Tui, Banner, Link
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
+
 def hello(request):
     return HttpResponse('欢迎使用Django！')
+
 
 def index2(request):
     sitename = 'Will'
@@ -33,11 +35,13 @@ def index2(request):
     }
     return render(request, 'blog/index2.html', context)
 
+
 def global_variable(request):
     allcategory = Category.objects.all()
     remen = Article.objects.filter(tui_id=2)[:6]
     tags = Tag.objects.all()
     return locals()
+
 
 def index(request):
     allarticle = Article.objects.all().order_by('-id')[0:10]
@@ -46,6 +50,7 @@ def index(request):
     hot = Article.objects.all().order_by('views')
     link = Link.objects.all()
     return render(request, 'blog/index.html', locals())
+
 
 def list(request, lid):
     list = Article.objects.filter(category_id=lid)
@@ -60,6 +65,7 @@ def list(request, lid):
         list = paginator.page(paginator.num_pages)
     return render(request, 'blog/list.html', locals())
 
+
 def show(request, sid):
     show = Article.objects.get(id=sid)
     hot = Article.objects.all().order_by('?')[:10]
@@ -68,6 +74,7 @@ def show(request, sid):
     show.views = show.views + 1
     show.save()
     return render(request, 'blog/show.html', locals())
+
 
 def tag(request, tag):
     list = Article.objects.filter(tags__name=tag)
@@ -82,6 +89,7 @@ def tag(request, tag):
         list = paginator.page(paginator.num_pages)
     return render(request, 'blog/tag.html', locals())
 
+
 def search(request):
     ss = request.GET.get('search')
     list = Article.objects.filter(title__icontains=ss)
@@ -94,6 +102,7 @@ def search(request):
     except EmptyPage:
         list = paginator.page(paginator.num_pages)
     return render(request, 'blog/search.html', locals())
+
 
 def about(request):
     return render(request, 'blog/page.html', locals())
