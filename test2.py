@@ -25,17 +25,17 @@ def pim_test():
     response = session.post('https://release.ashgso.com/CheckList/Pim/Upload/index', data=data, files=file)
     response.raise_for_status()
     print(response.status_code)
-    print(response.json())
+    print(response.headers)
     return True
 
 
-pim_test()
+# pim_test()
 # []    列表
 # {}    字典
 # () (1,2) 元组
 # {1,2,} set() 集合
-exit(0)
+# exit(0)
 
 r = requests.get('https://api.github.com/events')
-print(r.encoding)
+print(r.headers)
 
