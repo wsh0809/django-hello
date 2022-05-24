@@ -22,7 +22,8 @@ humanReadable = web3.fromWei(balance, 'ether')
 print(humanReadable)
 
 tokenToBuy = web3.toChecksumAddress("0xb972c4027818223bb7b9399b3ca3ca58186e1590")	#要购买的合约
-spend = web3.toChecksumAddress("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c") #wbnb contract 
+spend = web3.toChecksumAddress("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c") #wbnb contract
+
 
 contract = web3.eth.contract(address=panRouterContractAddress, abi=panabi)
 
@@ -31,14 +32,15 @@ print(nonce)
 
 start = time.time()
 
+# 兑换合约 spend 兑换成 tokenToBuy
 pancakeswap2_txn = contract.functions.swapExactETHForTokens(
-    0,
+    0,  # 最少接收的tokenTo
     [spend, tokenToBuy],
     sender_address,
     (int(time.time()) + 10000)
 ).buildTransaction({
     'from': sender_address,
-    'value': web3.toWei('0.001', 'ether'),
+    'value': web3.toWei('0.001', 'ether'),  # 要兑换的spend 数量
     'gas': 160000,
     'gasPrice': web3.toWei('5', 'gwei'),
     'nonce': nonce,

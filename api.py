@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as bsp
 from selenium import webdriver
+import config as cc
 
 def tokenAbi(address, driver=None):
     try:
@@ -18,7 +19,7 @@ def findAbi(address, driver):
     if not driver:
         options = webdriver.ChromeOptions()
         options.headless = True
-        options.add_argument("--proxy-server=10.146.243.152:7890")
+        options.add_argument("--proxy-server=" + cc.PROXY)
         options.add_argument('--ignore-certificate-errors')
         # profile = webdriver.FirefoxProfile()
         # profile.accept_untrusted_certs=True
