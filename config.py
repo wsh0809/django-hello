@@ -1,7 +1,7 @@
 import os
 
 # 钱包地址
-WALLET_ADDRESS = ""
+WALLET_ADDRESS = "0x80369d08c1617fcab4b54514e19c7a80feb0666e"
 # 地址私钥
 PRIVATE_KEY = ""
 
@@ -17,4 +17,4 @@ SHOW_TX_ON_BROWSER = True
 SELL_TOKENS = ""
 BUY_TOKENS = ""
 
-PROXY = "10.146.243.152:7890"
+PROXY = "127.0.0.1:7890"

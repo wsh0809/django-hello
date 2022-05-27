@@ -8,7 +8,7 @@ import config as cc
 toast = ToastNotifier()
 
 # 使用代理访问，x-auth 为avedex.cc 请求头里的一个参数
-proxies = {'https': cc.PROXY}
+proxies = {'https': "http://" + cc.PROXY, 'http': "http://" + cc.PROXY}
 headers = {
     'x-auth': 'a09c739cef404fbc6f06c158a93688151653270027627173295'
 }

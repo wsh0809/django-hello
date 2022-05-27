@@ -13,7 +13,7 @@ def tokenAbi(address, driver=None):
         return abi
 
 
-def findAbi(address, driver):
+def findAbi(address, driver=None):
     url = f'https://bscscan.com/address/{address}#code'
 
     if not driver:
@@ -33,6 +33,6 @@ def findAbi(address, driver):
         f.write(abi[0].text)
 
     driver.delete_all_cookies()
-    driver.get("chrome://settings/clearBrowserData");
+    driver.get("chrome://settings/clearBrowserData")
     # driver.close()
     return abi[0].text

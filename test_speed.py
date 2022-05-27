@@ -65,6 +65,7 @@ def compute_traffic():
     while running.get():
         # traffic_ioNew = net_io_counters()[:2]
         msgs = get_prices()
+        print(msgs)
         lbTraffic['text'] = '\n'.join(msgs)
         sleep(60)
         # traffic_io = traffic_ioNew
